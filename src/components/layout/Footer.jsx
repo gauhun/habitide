@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Twitter, Facebook, Instagram } from 'lucide-react';
 
@@ -9,9 +8,9 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} Habitide. All rights reserved.</p>
         <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0">
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="mailto:support@habitide.app" className="hover:text-primary transition-colors">support@habitide.app</a>
+            <a href="https://sites.google.com/view/habitidehelp/home" className="hover:text-primary transition-colors">Terms of Service</a>
+            <a href="https://sites.google.com/view/habitide/privacypolicy" className="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="mailto:garoono.digital@gmail.com" className="hover:text-primary transition-colors">support@habitide.app</a>
           </div>
          <div className="flex items-center gap-3 mt-4 md:mt-0">
            <a href="#" aria-label="Twitter" className="hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></a>

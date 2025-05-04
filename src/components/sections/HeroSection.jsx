@@ -18,7 +18,7 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
 
   return (
     <motion.section
-      className="relative pt-20 pb-16 md:pt-32 md:pb-24 text-center overflow-hidden bg-gradient-to-b from-background via-accent/10 to-background"
+      className="relative pt-20 pb-16 md:pt-3 md:pb-24 text-center overflow-hidden bg-gradient-to-b from-background via-accent/10 to-background"
       initial="hidden"
       animate="visible"
       variants={sectionVariants}

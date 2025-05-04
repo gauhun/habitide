@@ -15,7 +15,7 @@ const ScreenshotsSection = ({ screenshotUrls }) => {
 
   return (
     <motion.section
-      className="py-16 md:py-24 bg-gradient-to-b from-background via-accent/5 to-background"
+      className="py-16 md:py-12 bg-gradient-to-b from-background via-accent/5 to-background"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }} // Trigger earlier for grid
@@ -28,11 +28,12 @@ const ScreenshotsSection = ({ screenshotUrls }) => {
             <motion.div
               key={index}
               whileHover={{ y: -5 }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              // transition={{ type: 'spring', stiffness: 300 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05, type: 'spring', stiffness: 300 }}
             >
               <Card className="overflow-hidden shadow-lg border-none bg-card/50 backdrop-blur-sm rounded-xl">
                 <CardContent className="p-0">

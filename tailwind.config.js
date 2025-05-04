@@ -7,6 +7,7 @@ module.exports = {
 		'./app/**/*.{js,jsx}',
 		'./src/**/*.{js,jsx}',
 	],
+	prefix: "",
 	theme: {
 		container: {
 			center: true,
@@ -20,14 +21,20 @@ module.exports = {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: '#F6F5FA',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#FF5722',
+					light: '#FF8A65',
+					lightest: '#FFE0B2',
+					dark: '#E64A19',
+					veryLight: '#FFF3E0',
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
+					DEFAULT: '#00D1FF',
+					light: '#66E4FF',
+					dark: '#00A3CC',
 					foreground: 'hsl(var(--secondary-foreground))',
 				},
 				destructive: {
@@ -50,6 +57,9 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				'background-dark': '#121212',
+				'gray-dark': '#343333',
+				'gray-light': '#646464',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

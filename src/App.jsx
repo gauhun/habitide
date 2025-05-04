@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from '@/components/layout/Header.jsx';
 import HeroSection from '@/components/sections/HeroSection.jsx';
@@ -7,7 +6,8 @@ import ScreenshotsSection from '@/components/sections/ScreenshotsSection.jsx';
 import FeaturesSection from '@/components/sections/FeaturesSection.jsx';
 import CtaSection from '@/components/sections/CtaSection.jsx';
 import Footer from '@/components/layout/Footer.jsx';
-import { Target, BellRing, TrendingUp, BarChart, Moon, WifiOff } from 'lucide-react';
+import Testimonials from '@/components/home/Testimonials.jsx';
+import { Target, BellRing, TrendingUp, BarChart, Moon, WifiOff, Import, FileText } from 'lucide-react';
 
 const App = () => {
   const featureList = [
@@ -15,17 +15,20 @@ const App = () => {
     { icon: BellRing, title: "Daily Reminders", description: "Stay on track with customizable notifications." },
     { icon: TrendingUp, title: "Streak Tracking", description: "Visualize your consistency and build momentum." },
     { icon: BarChart, title: "Visual Analytics", description: "Gain insights into your progress with clear charts." },
-    { icon: Moon, title: "Dark Mode", description: "Enjoy a comfortable viewing experience at night." },
+    { icon: FileText, title: "Create Journal", description: "Create a journal to track your thoughts and feelings." },
     { icon: WifiOff, title: "Offline Support", description: "Track habits anytime, anywhere, even without internet." },
+    { icon: Import, title: "Import/Export Data", description: "Import and export your data to other apps." },
   ];
 
   const screenshotUrls = [
-    "https://i.postimg.cc/Gt90P4rp/habitide-1.png",
-    "https://i.postimg.cc/ryY2VNCR/habitide-2.png",
-    "https://i.postimg.cc/8PJQjftK/habitide-3.png",
-    "https://i.postimg.cc/BbzrmJQB/habitide-4.png",
-    "https://i.postimg.cc/mgCvSfx7/habitide-5.png",
-    "https://i.postimg.cc/zXsmWDQJ/habitide-6.png",
+    "https://i.postimg.cc/3JWC4RtW/hab-1.png",
+    
+    "https://i.postimg.cc/gk5yvW7s/hab-2.png",
+    "https://i.postimg.cc/0Q87826k/hab-6.png",
+    "https://i.postimg.cc/7Z239R8k/hab-4.png",
+    "https://i.postimg.cc/nLfvP1pQ/hab-5.png",
+    "https://i.postimg.cc/YSN1KmCD/hab-3.png",
+    
   ];
 
   const appLogoUrl = "https://i.postimg.cc/vB0F6WJj/round-habitide-logo.png";
@@ -45,6 +48,7 @@ const App = () => {
         <AboutSection />
         <ScreenshotsSection screenshotUrls={screenshotUrls.slice(1)} />
         <FeaturesSection featureList={featureList} />
+        <Testimonials />
         <CtaSection
           playStoreUrl={playStoreUrl}
           appStoreUrl={appStoreUrl}
