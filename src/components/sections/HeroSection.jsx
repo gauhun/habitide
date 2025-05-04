@@ -1,10 +1,22 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button.jsx';
-import { Apple, Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Play, Apple } from 'lucide-react';
+import { useToast } from "@/components/ui/use-toast";
 
 const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
+  const { toast } = useToast();
+
+  const handleAppStoreClick = (event) => {
+    if (appStoreUrl === '#') {
+      event.preventDefault();
+      toast({
+        title: "Coming Soon!",
+        description: "The App Store version is currently in review.",
+      });
+    }
+  };
+
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -13,6 +25,8 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
   const openLink = (url) => {
     if (url && url !== '#') {
       window.open(url, '_blank', 'noopener,noreferrer');
+    }else {
+    
     }
   };
 
@@ -49,8 +63,10 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white shadow-lg"
-            onClick={() => openLink(appStoreUrl)}
-            disabled={!appStoreUrl || appStoreUrl === '#'}
+            onClick={handleAppStoreClick}
+              // openLink(appStoreUrl)
+            
+            // disabled={!appStoreUrl || appStoreUrl === '#'}
           >
             <Apple className="mr-2 h-5 w-5" /> Download on App Store
           </Button>

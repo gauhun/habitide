@@ -8,6 +8,7 @@ import CtaSection from '@/components/sections/CtaSection.jsx';
 import Footer from '@/components/layout/Footer.jsx';
 import Testimonials from '@/components/home/Testimonials.jsx';
 import { Target, BellRing, TrendingUp, BarChart, Moon, WifiOff, Import, FileText } from 'lucide-react';
+import { Toaster } from "@/components/ui/toaster";
 
 const App = () => {
   const featureList = [
@@ -55,6 +56,7 @@ const App = () => {
         />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Header = ({ logoUrl }) => {
           transition={{ duration: 0.5 }}
         >
           <img src={logoUrl} alt="Habitide Logo" className="h-8 w-8 rounded-full" />
-          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500 hidden sm:inline">
+          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500 hidden sm:inline">
             HabiTide
           </span>
         </motion.a>
