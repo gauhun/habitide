@@ -15,7 +15,7 @@ const CtaSection = ({ playStoreUrl, appStoreUrl }) => {
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
-
+// test
   return (
     <motion.section
       id="cta"
