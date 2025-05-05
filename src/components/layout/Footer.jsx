@@ -13,9 +13,9 @@ const Footer = () => {
             <a href="mailto:garoono.digital@gmail.com" className="hover:text-primary transition-colors">garoono.digital@gmail.com</a>
           </div>
          <div className="flex items-center gap-3 mt-4 md:mt-0">
-           <a href="#" aria-label="Twitter" className="hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></a>
-           <a href="#" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></a>
-           <a href="#" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></a>
+           <a href="https://x.com/xgaroono" aria-label="Twitter" className="hover:text-primary transition-colors"><Twitter className="h-5 w-5" /></a>
+           {/* <a href="#" aria-label="Facebook" className="hover:text-primary transition-colors"><Facebook className="h-5 w-5" /></a> */}
+           <a href="https://www.instagram.com/garoono" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram className="h-5 w-5" /></a>
          </div>
         </div>
       </div>
