@@ -60,6 +60,15 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
+           <Button
+            size="lg"
+            variant="outline"
+            className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10 shadow-lg"
+            onClick={() => openLink(playStoreUrl)}
+            disabled={!playStoreUrl || playStoreUrl === '#'}
+          >
+            <Play className="mr-2 h-5 w-5 fill-current" /> Get it on Google Play
+          </Button>
           <Button
             size="lg"
             className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white shadow-lg"
@@ -70,15 +79,7 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
           >
             <Apple className="mr-2 h-5 w-5" /> Download on App Store
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10 shadow-lg"
-            onClick={() => openLink(playStoreUrl)}
-            disabled={!playStoreUrl || playStoreUrl === '#'}
-          >
-            <Play className="mr-2 h-5 w-5 fill-current" /> Get it on Google Play
-          </Button>
+         
         </motion.div>
       </div>
        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-0"></div>
