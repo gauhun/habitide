@@ -26,6 +26,7 @@ const App = () => {
     
     "https://i.postimg.cc/gk5yvW7s/hab-2.png",
     "https://i.postimg.cc/0Q87826k/hab-6.png",
+    "https://i.postimg.cc/fLNKR4xT/opt-hab-7.png",
     "https://i.postimg.cc/7Z239R8k/hab-4.png",
     "https://i.postimg.cc/nLfvP1pQ/hab-5.png",
     "https://i.postimg.cc/YSN1KmCD/hab-3.png",
