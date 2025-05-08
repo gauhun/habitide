@@ -35,7 +35,7 @@ const App = () => {
   const appLogoUrl = "https://i.postimg.cc/vB0F6WJj/round-habitide-logo.png";
   const playStoreUrl = "https://t.co/6OxRTvQYeI";
   // Placeholder App Store URL - replace # with the actual URL when available
-  const appStoreUrl = "#";
+  const appStoreUrl = "https://apps.apple.com/in/app/habit-tracker-habitide/id6745226793";
 
   return (
     <div className="flex flex-col min-h-screen">
