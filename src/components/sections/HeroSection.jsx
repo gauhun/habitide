@@ -14,6 +14,8 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
         title: "Coming Soon!",
         description: "The App Store version is currently in review.",
       });
+    }else {
+      openLink(appStoreUrl);
     }
   };
 
