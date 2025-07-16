@@ -129,8 +129,8 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl, allScreenshots =
                    <img
                      className={`relative rounded-3xl shadow-2xl border border-white/10 aspect-[9/19] object-cover object-top ${
                        isCenter 
-                         ? 'w-64 md:w-80' 
-                         : 'w-48 md:w-64'
+                         ? 'w-90 md:w-106' 
+                         : 'w-74 md:w-90'
                      }`}
                      alt={`Habitide app screenshot ${index + 1}`}
                      src={imageUrl}

@@ -2,10 +2,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button.jsx';
+import { Twitter, Linkedin } from 'lucide-react';
 
 const Header = ({ logoUrl }) => {
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openSocialLink = (url) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -24,6 +29,33 @@ const Header = ({ logoUrl }) => {
           </span>
         </motion.a>
         <nav className="flex items-center gap-3">
+           {/* Social Links */}
+           <motion.div 
+             className="flex items-center gap-2 mr-4"
+             initial={{ opacity: 0, x: 20 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.5, delay: 0.1 }}
+           >
+             <motion.button
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.95 }}
+               onClick={() => openSocialLink('https://x.com/xgaroono')}
+               className="p-2 rounded-xl hover:bg-white/10 transition-all duration-200 text-white/70 hover:text-primary"
+               aria-label="Follow on X (Twitter)"
+             >
+               <Twitter className="h-5 w-5" />
+             </motion.button>
+             <motion.button
+               whileHover={{ scale: 1.1 }}
+               whileTap={{ scale: 0.95 }}
+               onClick={() => openSocialLink('https://www.linkedin.com/in/gauhun/')}
+               className="p-2 rounded-xl hover:bg-white/10 transition-all duration-200 text-white/70 hover:text-primary"
+               aria-label="Connect on LinkedIn"
+             >
+               <Linkedin className="h-5 w-5" />
+             </motion.button>
+           </motion.div>
+
            <motion.div 
              whileHover={{ scale: 1.05 }} 
              whileTap={{ scale: 0.95 }}
