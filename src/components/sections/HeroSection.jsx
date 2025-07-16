@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Play, Apple } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
 
-const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
+const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl, allScreenshots = [] }) => {
   const { toast } = useToast();
 
   const handleAppStoreClick = (event) => {
@@ -32,32 +32,43 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
     }
   };
 
+  // Combine hero image with other screenshots, ensuring hero image is in center
+  const allImages = [heroImageUrl, ...allScreenshots];
+
   return (
     <motion.section
-      className="relative pt-20 pb-16 md:pt-3 md:pb-24 text-center overflow-hidden bg-gradient-to-b from-background via-accent/10 to-background"
+      className="relative pt-32 pb-20 md:pt-40 md:pb-32 text-center overflow-hidden bg-gradient-to-b from-black via-gray-900/20 to-black"
       initial="hidden"
       animate="visible"
       variants={sectionVariants}
     >
-      <div className="container max-w-4xl px-4 z-10 relative">
+      {/* Background blur effects */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl opacity-30"></div>
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-500/20 rounded-full filter blur-3xl opacity-20"></div>
+      
+      <div className="container max-w-7xl px-6 z-10 relative">
         <motion.h1
-          className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500"
+          className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Build Habits. Transform Your Life.
+          Build Habits.
+          <br />
+          <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+            Transform Your Life.
+          </span>
         </motion.h1>
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          A simple yet powerful app to help you build better habits every day.
+          A beautifully simple yet powerful app to help you build better habits every day.
         </motion.p>
         <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center gap-4"
+          className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-16"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -65,37 +76,70 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl }) => {
            <Button
             size="lg"
             variant="outline"
-            className="w-full sm:w-auto border-primary text-primary hover:bg-primary/10 shadow-lg"
+            className="w-full sm:w-auto glass-light border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 shadow-2xl rounded-2xl px-8 py-4 text-lg ios-button"
             onClick={() => openLink(playStoreUrl)}
             disabled={!playStoreUrl || playStoreUrl === '#'}
           >
-            <Play className="mr-2 h-5 w-5 fill-current" /> Get it on Google Play
+            <Play className="mr-3 h-6 w-6 fill-current" /> Get it on Google Play
           </Button>
           <Button
             size="lg"
-            className="w-full sm:w-auto bg-black hover:bg-gray-800 text-white shadow-lg"
+            className="w-full sm:w-auto bg-gradient-to-r from-gray-800 to-black hover:from-gray-700 hover:to-gray-900 text-white shadow-2xl rounded-2xl px-8 py-4 text-lg border border-white/10 ios-button"
             onClick={handleAppStoreClick}
-              // openLink(appStoreUrl)
-            
-            // disabled={!appStoreUrl || appStoreUrl === '#'}
           >
-            <Apple className="mr-2 h-5 w-5" /> Download on App Store
+            <Apple className="mr-3 h-6 w-6" /> Download on App Store
           </Button>
-         
         </motion.div>
       </div>
-       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-0"></div>
+       
+       {/* All Screenshots Side by Side */}
        <motion.div
-         className="mt-12 md:mt-16 flex justify-center px-4 z-10 relative"
+         className="mt-16 md:mt-24 flex justify-center items-end px-6 z-10 relative"
          initial={{ opacity: 0, scale: 0.8 }}
          animate={{ opacity: 1, scale: 1 }}
-         transition={{ duration: 0.7, delay: 0.4, type: 'spring', stiffness: 100 }}
+         transition={{ duration: 0.1, delay: 0.1, type: 'spring', stiffness: 30 }}
        >
-         <img
-           className="w-full max-w-xs md:max-w-[280px] rounded-xl shadow-2xl border border-border/10 aspect-[9/19] object-cover object-top"
-           alt="Habitide app interface mockup on a phone"
-           src={heroImageUrl || "https://i.postimg.cc/Gt90P4rp/habitide-1.png"}
-          />
+         <div className="flex items-end gap-4 md:gap-8 max-w-6xl mx-auto">
+           {allImages.map((imageUrl, index) => {
+             const isCenter = index === 0; // First image (hero) is center
+             const isSecond = index === 1;
+             const isLast = index === allImages.length - 1;
+             
+             return (
+               <motion.div
+                 key={index}
+                 className={`relative ${isCenter ? 'z-20' : 'z-10'}`}
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.3, delay: 0.05 + index * 0.1 }}
+                 whileHover={{ y: -5, scale: 1.02 }}
+               >
+                 <div className={`relative ${
+                   isCenter 
+                     ? 'transform scale-110' 
+                     : isSecond || isLast 
+                       ? 'transform scale-95 opacity-90' 
+                       : 'transform scale-100 opacity-95'
+                 }`}>
+                   <div className={`absolute inset-0 bg-gradient-to-t ${
+                     isCenter 
+                       ? 'from-primary/20 to-transparent' 
+                       : 'from-primary/10 to-transparent'
+                   } blur-xl rounded-3xl`}></div>
+                   <img
+                     className={`relative rounded-3xl shadow-2xl border border-white/10 aspect-[9/19] object-cover object-top ${
+                       isCenter 
+                         ? 'w-64 md:w-80' 
+                         : 'w-48 md:w-64'
+                     }`}
+                     alt={`Habitide app screenshot ${index + 1}`}
+                     src={imageUrl}
+                   />
+                 </div>
+               </motion.div>
+             );
+           })}
+         </div>
        </motion.div>
     </motion.section>
   );

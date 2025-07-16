@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const testimonials = [
   { id: 1, src: 'https://i.postimg.cc/nV1pjVX8/review-1.png', alt: 'Testimonial 1' },
@@ -10,22 +11,45 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-6 bg-background">
-      <div className="container max-w-screen-lg px-4 mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
-        <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="break-inside-avoid">
-              <img
-                src={testimonial.src}
-                alt={testimonial.alt}
-                className="w-full h-auto object-cover rounded-2xl shadow-md" // rounded-2xl for approx 16px
-              />
-            </div>
+    <motion.section 
+      className="py-20 md:py-32 bg-gradient-to-b from-black to-gray-900/50"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <div className="container max-w-screen-lg px-6 mx-auto">
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          What Our Users Say
+        </motion.h2>
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+          {testimonials.map((testimonial, index) => (
+            <motion.div 
+              key={testimonial.id} 
+              className="break-inside-avoid"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="ios-card p-2 hover:scale-105 transition-transform duration-300">
+                <img
+                  src={testimonial.src}
+                  alt={testimonial.alt}
+                  className="w-full h-auto object-cover rounded-xl shadow-lg"
+                />
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
