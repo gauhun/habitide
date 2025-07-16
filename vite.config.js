@@ -171,7 +171,7 @@ const addTransformIndexHtml = {
 console.warn = () => {};
 
 export default defineConfig({
-	base: '/habitide/',
+	base: '/',
 	plugins: [react(), addTransformIndexHtml],
 	server: {
 		cors: true,
