@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://gauhun.github.io/habitide",
+  "homepage": "https://garoono.github.io/habitide",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
