@@ -34,7 +34,7 @@ const App = () => {
     "https://i.postimg.cc/WzRrdMP7/5.png",
   ];
 
-  const appLogoUrl = "https://i.postimg.cc/c4CZvPXX/habitide-logo.png";
+  const appLogoUrl = "https://i.postimg.cc/B65CvGq6/habitide-latest-logo-compressed.png";
   const playStoreUrl = "https://t.co/6OxRTvQYeI";
   // Placeholder App Store URL - replace # with the actual URL when available
   const appStoreUrl = "https://apps.apple.com/in/app/habit-tracker-habitide/id6745226793";
