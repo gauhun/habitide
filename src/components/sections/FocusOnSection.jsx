@@ -1,21 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Play, Apple } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Play, Apple } from "lucide-react";
 
 const FocusOnSection = () => {
   const focusOnImageUrl = "https://i.postimg.cc/76NCkN00/focuson-3shots.jpg";
   const allAppLink = "https://linktr.ee/garoono";
-  const focusOnAndroidUrl = "https://play.google.com/store/apps/details?id=in.garoono.focuson"; // Replace with actual Android store URL
-  const focusOnIosUrl = "https://apps.apple.com/us/app/focuson-productivity-timer/id6751473488?platform=iphone"; // Replace with actual iOS store URL
+  const focusOnAndroidUrl =
+    "https://play.google.com/store/apps/details?id=in.garoono.focuson"; // Replace with actual Android store URL
+  const focusOnIosUrl =
+    "https://apps.apple.com/us/app/focuson-productivity-timer/id6751473488?platform=iphone"; // Replace with actual iOS store URL
 
   const openLink = (url) => {
-    if (url && url !== '#') {
-      window.open(url, '_blank', 'noopener,noreferrer');
+    if (url && url !== "#") {
+      window.open(url, "_blank", "noopener,noreferrer");
     }
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="relative flex-shrink-0"
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
@@ -23,22 +25,23 @@ const FocusOnSection = () => {
     >
       {/* Title */}
       <motion.h3
-        className="text-lg sm:text-xl font-bold text-white mb-4 text-center"
+        className="text-4xl sm:text-5xl md:text-2xl font-bold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        Our other productivity app trending
+        Our other <span className="text-blue-500 font-bold">PRODUCTIVITY</span>{" "}
+        app <span className="text-blue-500 font-bold">TRENDING</span>
       </motion.h3>
 
       {/* FocusOn App Screenshots */}
       <div className="relative">
-        <img 
-          src={focusOnImageUrl} 
-          alt="FocusOn - Pomodoro Timer App Screenshots" 
+        <img
+          src={focusOnImageUrl}
+          alt="FocusOn - Pomodoro Timer App Screenshots"
           className="w-96 sm:w-[28rem] h-64 sm:h-72 object-cover rounded-xl shadow-lg border border-white/10"
         />
-        
+
         {/* Bouncy Banner */}
         <motion.div
           className="absolute -top-3 -right-3"
@@ -60,17 +63,17 @@ const FocusOnSection = () => {
             }}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 400, 
+            transition={{
+              type: "spring",
+              stiffness: 400,
               damping: 15,
-              delay: 0.5 
+              delay: 0.5,
             }}
           >
             100+ installs
           </motion.a>
         </motion.div>
-        
+
         {/* App Name Banner */}
         <motion.div
           className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
