@@ -119,7 +119,9 @@ const HeroSection = ({
                 }}
                 size="lg"
               >
-                <Apple className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6" /> iOS
+                <span className="flex items-center justify-center w-full">
+                  <Apple className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6" /> iOS
+                </span>
               </motion.button>
             </motion.div>
           </div>
