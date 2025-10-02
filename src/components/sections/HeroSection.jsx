@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Play, Apple } from 'lucide-react';
 import { useToast } from "@/components/ui/use-toast";
+import FocusOnSection from '@/components/sections/FocusOnSection.jsx';
 
 const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl, allScreenshots = [] }) => {
   const { toast } = useToast();
@@ -47,49 +48,69 @@ const HeroSection = ({ playStoreUrl, appStoreUrl, heroImageUrl, allScreenshots =
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-blue-500/20 rounded-full filter blur-3xl opacity-20"></div>
       
       <div className="container max-w-7xl px-6 z-10 relative">
-        <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          Build Habits.
-          <br />
-          <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
-            Transform Your Life.
-          </span>
-        </motion.h1>
-        <motion.p
-          className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          A beautifully simple yet powerful app to help you build better habits every day.
-        </motion.p>
-        <motion.div
-          className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-12 sm:mb-16 px-4 sm:px-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-           <Button
-            size="lg"
-            variant="outline"
-            className="w-full sm:w-auto glass-light border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 shadow-2xl rounded-2xl px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg ios-button"
-            onClick={() => openLink(playStoreUrl)}
-            disabled={!playStoreUrl || playStoreUrl === '#'}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+          {/* Main Content */}
+          <div className="flex-1 text-center lg:text-left">
+            <motion.h1
+              className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              Build Habits.
+              <br />
+              <span className="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+                Transform Your Life.
+              </span>
+            </motion.h1>
+            <motion.p
+              className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 sm:mb-12 max-w-3xl mx-auto lg:mx-0 leading-relaxed px-4 sm:px-0"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              A beautifully simple yet powerful app to help you build better habits every day.
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 sm:gap-6 mb-12 sm:mb-16 px-4 sm:px-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+               <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto glass-light border-primary/30 text-primary hover:bg-primary/20 hover:border-primary/50 shadow-2xl rounded-2xl px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg ios-button"
+                onClick={() => openLink(playStoreUrl)}
+                disabled={!playStoreUrl || playStoreUrl === '#'}
+              >
+                <Play className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6 fill-current" /> Get it on Google Play
+              </Button>
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-gray-800 to-black hover:from-gray-700 hover:to-gray-900 text-white shadow-2xl rounded-2xl px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg border border-white/10 ios-button"
+                onClick={handleAppStoreClick}
+              >
+                <Apple className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6" /> Download on App Store
+              </Button>
+            </motion.div>
+          </div>
+          
+          {/* Slash Divider */}
+          <motion.div
+            className="hidden lg:flex items-center justify-center text-6xl sm:text-8xl font-bold text-white/20 select-none"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Play className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6 fill-current" /> Get it on Google Play
-          </Button>
-          <Button
-            size="lg"
-            className="w-full sm:w-auto bg-gradient-to-r from-gray-800 to-black hover:from-gray-700 hover:to-gray-900 text-white shadow-2xl rounded-2xl px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg border border-white/10 ios-button"
-            onClick={handleAppStoreClick}
-          >
-            <Apple className="mr-2 sm:mr-3 h-5 sm:h-6 w-5 sm:w-6" /> Download on App Store
-          </Button>
-        </motion.div>
+            /
+          </motion.div>
+
+          {/* FocusOn Section */}
+          <div className="flex-shrink-0">
+            <FocusOnSection />
+          </div>
+        </div>
       </div>
        
        {/* All Screenshots - Mobile-First Responsive Design */}
