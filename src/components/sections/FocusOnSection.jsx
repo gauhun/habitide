@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Play, Apple } from "lucide-react";
 
 const FocusOnSection = () => {
-  const focusOnImageUrl = "https://i.postimg.cc/76NCkN00/focuson-3shots.jpg";
+  const focusOnImageUrl = "https://i.ibb.co/gLyg3Sp2/focuson.png";
   const allAppLink = "https://linktr.ee/garoono";
   const focusOnAndroidUrl =
     "https://play.google.com/store/apps/details?id=in.garoono.focuson"; // Replace with actual Android store URL

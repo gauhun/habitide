@@ -217,25 +217,22 @@ const HeroSection = ({
                   whileHover={{ y: -5, scale: 1.02 }}
                 >
                   <div
-                    className={`relative ${
-                      isCenter
+                    className={`relative ${isCenter
                         ? "transform scale-110"
                         : isSecond || isLast
-                        ? "transform scale-95 opacity-90"
-                        : "transform scale-100 opacity-95"
-                    }`}
+                          ? "transform scale-95 opacity-90"
+                          : "transform scale-100 opacity-95"
+                      }`}
                   >
                     <div
-                      className={`absolute inset-0 bg-gradient-to-t ${
-                        isCenter
+                      className={`absolute inset-0 bg-gradient-to-t ${isCenter
                           ? "from-primary/20 to-transparent"
                           : "from-primary/10 to-transparent"
-                      } blur-xl rounded-3xl`}
+                        } blur-xl rounded-3xl`}
                     ></div>
                     <img
-                      className={`relative rounded-3xl shadow-2xl border border-white/10 aspect-[9/19] object-cover object-top ${
-                        isCenter ? "w-64 lg:w-80" : "w-48 lg:w-64"
-                      }`}
+                      className={`relative rounded-3xl shadow-2xl border border-white/10 aspect-[9/19] object-cover object-top ${isCenter ? "w-64 lg:w-80" : "w-48 lg:w-64"
+                        }`}
                       alt={`Habitide app screenshot ${index + 1}`}
                       src={imageUrl}
                     />

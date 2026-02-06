@@ -27,14 +27,14 @@ const App = () => {
   ];
 
   const screenshotUrls = [
-    "https://i.postimg.cc/vZXW0gWQ/1.png",
-    "https://i.postimg.cc/C5j8kzhp/2.png",
-    "https://i.postimg.cc/SKvcpBT3/3.png",
-    "https://i.postimg.cc/QtK1Nfvt/4.png",
-    "https://i.postimg.cc/WzRrdMP7/5.png",
+    "https://i.ibb.co/5WHpxSNm/1.png",
+    "https://i.ibb.co/vC100x2J/2.png",
+    "https://i.ibb.co/v7wSsV9/3.png",
+    "https://i.ibb.co/4w7gZWs8/4.png",
+    "https://i.ibb.co/zVcLMDyF/5.png"
   ];
 
-  const appLogoUrl = "https://i.postimg.cc/B65CvGq6/habitide-latest-logo-compressed.png";
+  const appLogoUrl = "https://i.ibb.co/zW9s3X8B/habitide-new-logo.png";
   const playStoreUrl = "https://t.co/6OxRTvQYeI";
   // Placeholder App Store URL - replace # with the actual URL when available
   const appStoreUrl = "https://apps.apple.com/in/app/habit-tracker-habitide/id6745226793";
