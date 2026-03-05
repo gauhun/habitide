@@ -70,7 +70,7 @@ const FocusOnSection = () => {
               delay: 0.5,
             }}
           >
-            100+ installs
+            1500+ installs
           </motion.a>
         </motion.div>
 

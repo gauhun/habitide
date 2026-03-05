@@ -60,7 +60,7 @@ const HeroSection = ({
           {/* Main Content */}
           <div className="flex-1 text-center lg:text-left">
             <span className="inline-block bg-gradient-to-r from-blue-400 via-white-400 to-black-800 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full shadow-md mb-2 animate-pulse">
-              2000+ Downloads
+              3000+ Downloads
             </span>
             <br />
             <motion.h1
@@ -218,16 +218,16 @@ const HeroSection = ({
                 >
                   <div
                     className={`relative ${isCenter
-                        ? "transform scale-110"
-                        : isSecond || isLast
-                          ? "transform scale-95 opacity-90"
-                          : "transform scale-100 opacity-95"
+                      ? "transform scale-110"
+                      : isSecond || isLast
+                        ? "transform scale-95 opacity-90"
+                        : "transform scale-100 opacity-95"
                       }`}
                   >
                     <div
                       className={`absolute inset-0 bg-gradient-to-t ${isCenter
-                          ? "from-primary/20 to-transparent"
-                          : "from-primary/10 to-transparent"
+                        ? "from-primary/20 to-transparent"
+                        : "from-primary/10 to-transparent"
                         } blur-xl rounded-3xl`}
                     ></div>
                     <img
