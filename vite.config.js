@@ -174,10 +174,7 @@ export default defineConfig({
 	base: '/',
 	plugins: [react(), addTransformIndexHtml],
 	server: {
-	cors: true,
-		headers: {
-			'Cross-Origin-Embedder-Policy': 'credentialless',
-		},
+		cors: true,
 		allowedHosts: true,
 	},
 	resolve: {
