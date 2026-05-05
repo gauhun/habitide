@@ -11,11 +11,11 @@ const ScreenshotsRow = ({ screenshots }) => {
   const rowRef = useRef(null);
 
   const labels = [
-    'Dashboard',
-    'Configure Quantified Habit',
-    'Quantified Habit',
-    'Growth Radar + Proof Snaps',
-    'Create Habit (10 sec)',
+    'Habit Dashboard',
+    'Quick Habit Setup',
+    'Life in Dots',
+    'Insight Trends',
+    'Monthly Streak Grid',
   ];
 
   return (

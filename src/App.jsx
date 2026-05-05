@@ -18,13 +18,13 @@ const appLogoUrl = 'https://i.ibb.co/zW9s3X8B/habitide-new-logo.png';
 const appStoreUrl = 'https://apps.apple.com/in/app/habit-tracker-habitide/id6745226793';
 const playStoreUrl = 'https://t.co/6OxRTvQYeI';
 
-// New direct i.ibb.co screenshot links
+// Updated direct i.ibb.co screenshot links
 const screenshots = {
-  dashboard: 'https://i.ibb.co/pvKqSSQn/jpeg-optimizer-1.png',  // screen 1 — dashboard / hero
-  quantified: 'https://i.ibb.co/DHbKYKRM/jpeg-optimizer-2.png',  // screen 2 — quantified habit toggle
-  proofSnaps: 'https://i.ibb.co/N2nQjFq0/jpeg-optimizer-3.png',  // screen 3 — proof snaps / friends feed
-  radar: 'https://i.ibb.co/N27rSdfX/jpeg-optimizer-4.png',  // screen 4 — growth radar chart
-  insights: 'https://i.ibb.co/8nfMjnY2/jpeg-optimizer-5.png',  // screen 5 — weekly insights
+  dashboard: 'https://i.ibb.co/gFPPZPrQ/1.png',   // screen 1 — dashboard / hero
+  quantified: 'https://i.ibb.co/h1gnKcLW/2.png',  // screen 2 — quantified habit toggle
+  proofSnaps: 'https://i.ibb.co/k2zRqCPC/3.png',  // screen 3 — proof snaps / friends feed
+  radar: 'https://i.ibb.co/HpNgLFVJ/4.png',       // screen 4 — growth radar chart
+  insights: 'https://i.ibb.co/N6dj6rdH/5.png',    // screen 5 — weekly insights
 };
 
 const App = () => (
@@ -63,42 +63,42 @@ const App = () => (
       {/* 4.2 The Problem */}
       <ProblemSection />
 
-      {/* 4.3 Quantified Habits — phone left, copy right (soft bg) */}
+      {/* 4.3 Quick Habit Setup — phone left, copy right (soft bg) */}
       <FeatureSection
-        eyebrow="Quantified Habits"
-        headline={<>Track the number,<br />not the checkbox.</>}
-        subhead="Set real targets — 20 pages, 8 glasses, 5 km, 90 minutes. Log how much you actually did. Watch progress fill in."
+        eyebrow="Quick Habit Setup"
+        headline={<>Set up a new habit<br />in seconds.</>}
+        subhead="Add a habit, choose quantified or normal tracking, and start instantly. No clutter, no long setup."
         extraContent={
           <div className="quantity-pills">
-            {['📖 Read 20 pages', '💧 Drink 8 glasses', '🏃 Run 5 km', '⏱ Focus 90 minutes'].map((p) => (
+            {['📖 Read 20 pages', '💧 8 glasses', '🏃 5 km', '✅ Simple daily habit'].map((p) => (
               <p key={p} className="qty-pill">{p}</p>
             ))}
           </div>
         }
         imageUrl={screenshots.quantified}
-        imageAlt="Habitide screen showing quantified habit setup with numeric targets"
+        imageAlt="Habitide quick habit setup screen showing quantified and normal options"
         imageRight={false}
         soft={true}
       />
 
-      {/* 4.4 Proof Snaps — copy left, phone right (white bg) */}
+      {/* 4.4 Your Life in Dots — copy left, phone right (white bg) */}
       <FeatureSection
-        eyebrow="Proof Snaps"
-        headline={<>Photo proof.<br />Friends watching.<br />No more lying to yourself.</>}
-        subhead="After every habit, snap a photo. It posts to your friends' feed automatically. They cheer. You actually do the thing."
-        imageUrl={screenshots.dashboard}
-        imageAlt="Habitide proof snaps — stories row and photo grid showing completed habits"
+        eyebrow="Your Life in Dots"
+        headline={<>See your progress<br />as simple dots.</>}
+        subhead="One glance tells you what got done and what got missed. It is clean, visual, and easy to follow."
+        imageUrl={screenshots.proofSnaps}
+        imageAlt="Habitide life in dots view showing daily progress status"
         imageRight={true}
         soft={false}
       />
 
-      {/* 4.5 Growth Radar — phone left, copy right (soft bg) */}
+      {/* 4.5 Insight Trends — phone left, copy right (soft bg) */}
       <FeatureSection
-        eyebrow="Growth Radar"
-        headline={<>See every part of your life.<br />One screen.</>}
-        subhead="Fitness. Sleep. Mindset. Nutrition. Productivity. Discipline. Habitide maps your habits to six life dimensions so you know exactly where you're winning and where you're slipping."
-        imageUrl={screenshots.radar}
-        imageAlt="Habitide growth radar showing six life dimension chart"
+        eyebrow="Insight Trends"
+        headline={<>See what's working<br />with insights.</>}
+        subhead="Track consistency, winning habits, and your monthly streak grid view so you can improve week by week."
+        imageUrl={screenshots.insights}
+        imageAlt="Habitide insights screen with streak grid and trend summaries"
         imageRight={false}
         soft={true}
       />
