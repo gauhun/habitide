@@ -2,7 +2,7 @@ import React from 'react';
 import { useFadeUp } from '../../lib/useFadeUp.js';
 
 const FOCUSON_SCREENSHOT = 'https://i.ibb.co/y9dX3RX/focuson-shots.png';
-const FOCUSON_APP_STORE  = 'https://apps.apple.com/in/app/focuson-pomodoro-timer/id6744202684';
+const FOCUSON_LINK = 'https://linktr.ee/focusontimer';
 
 const FocusOnBanner = () => {
   const sectionRef = useFadeUp();
@@ -24,7 +24,7 @@ const FocusOnBanner = () => {
             </p>
             <a
               id="focuson-link"
-              href={FOCUSON_APP_STORE}
+              href={FOCUSON_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="focuson-link"
