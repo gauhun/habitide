@@ -277,9 +277,14 @@ const VideoFeed = () => {
   useEffect(() => {
     const container = scrollRef.current;
     const card = container?.children?.[activeVideo];
-    if (!card) return;
+    if (!container || !card) return;
     ignoreScrollSyncUntilRef.current = Date.now() + 700;
-    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    
+    const containerCenter = container.offsetWidth / 2;
+    const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+    const targetScrollLeft = cardCenter - containerCenter;
+    
+    container.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
   }, [activeVideo]);
 
   useEffect(() => {
