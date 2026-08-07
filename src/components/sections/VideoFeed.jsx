@@ -59,31 +59,38 @@ const ytPost = (iframe, func, args = []) => {
   );
 };
 
-const VideoCard = ({ videoId, isActive, soundOn, onEnded, onRequestFocus, onUserInteract }) => {
+const VideoCard = ({ videoId, isActive, soundOn, engaged, onEnded, onRequestFocus, onUserInteract }) => {
   const iframeRef = useRef(null);
   const isActiveRef = useRef(isActive);
   const soundOnRef = useRef(soundOn);
+  const engagedRef = useRef(engaged);
   const [isPlaying, setIsPlaying] = useState(false);
-  // Tracks user intent to pause the active video. Cleared when the card
-  // becomes inactive so re-activating later starts playing again.
-  const [userPaused, setUserPaused] = useState(false);
+  // Tracks user intent to pause the active video. Starts TRUE so nothing
+  // plays on page load — playback begins only after the user taps the feed.
+  const [userPaused, setUserPaused] = useState(true);
+  const userPausedRef = useRef(userPaused);
 
   useEffect(() => { isActiveRef.current = isActive; }, [isActive]);
   useEffect(() => { soundOnRef.current = soundOn; }, [soundOn]);
+  useEffect(() => { engagedRef.current = engaged; }, [engaged]);
+  useEffect(() => { userPausedRef.current = userPaused; }, [userPaused]);
 
   useEffect(() => {
-    if (!isActive) setUserPaused(false);
-  }, [isActive]);
+    // When a card leaves focus, reset its baseline for the next activation:
+    // before the user has ever tapped the feed, cards stay paused; after
+    // engagement, re-activated cards resume automatically (reels behavior).
+    if (!isActive) setUserPaused(!engaged);
+  }, [isActive, engaged]);
 
   // Build embed URL once. URL params are STATIC so the iframe never reloads —
-  // mute/unmute is controlled at runtime via postMessage. `mute=1` in the URL
-  // is required so the very first autoplay is allowed by the browser; once
-  // the user gestures we send `unMute` to the player.
+  // mute/unmute is controlled at runtime via postMessage. autoplay=0: nothing
+  // plays until the user taps the feed; mute=1 keeps any pre-gesture muted
+  // programmatic play permitted by browser policy.
   const src = useMemo(() => {
     const origin = typeof window !== 'undefined' ? window.location.origin : '';
     const params = new URLSearchParams({
       enablejsapi: '1',
-      autoplay: '1',
+      autoplay: '0',
       mute: '1',
       controls: '0',
       modestbranding: '1',
@@ -109,7 +116,10 @@ const VideoCard = ({ videoId, isActive, soundOn, onEnded, onRequestFocus, onUser
       if (isActiveRef.current) {
         if (soundOnRef.current) ytPost(iframe, 'unMute');
         else ytPost(iframe, 'mute');
-        ytPost(iframe, 'playVideo');
+        // Never start playback before the user has tapped the feed.
+        if (engagedRef.current && !userPausedRef.current) {
+          ytPost(iframe, 'playVideo');
+        }
       }
     };
 
@@ -242,12 +252,16 @@ const VideoFeed = () => {
   // actually autoplays), then flip soundOn=true on the very first user gesture
   // anywhere on the page — VideoCard listens and `unMute`s the active player.
   const [soundOn, setSoundOn] = useState(false);
+  // True only after the user deliberately taps the video feed (card or nav).
+  // Until then no video plays — page load is silent and static.
+  const [engaged, setEngaged] = useState(false);
   const scrollRef = useRef(null);
   const scrollRafRef = useRef(null);
   const ignoreScrollSyncUntilRef = useRef(0);
 
   const markUserInteracted = useCallback(() => {
     setSoundOn(true);
+    setEngaged(true);
   }, []);
 
   // Listen once for any user gesture on the page so we can unmute audio.
@@ -270,6 +284,7 @@ const VideoFeed = () => {
 
   const goToVideo = useCallback((nextIndex) => {
     setSoundOn(true);
+    setEngaged(true);
     const clamped = Math.max(0, Math.min(VIDEO_IDS.length - 1, nextIndex));
     setActiveVideo(clamped);
   }, []);
@@ -333,7 +348,7 @@ const VideoFeed = () => {
         </div>
 
         <div className="video-feed-stage">
-          {!soundOn && (
+          {engaged && !soundOn && (
             <button
               type="button"
               className="video-sound-hint"
@@ -371,6 +386,7 @@ const VideoFeed = () => {
                 videoId={id}
                 isActive={activeVideo === index}
                 soundOn={soundOn}
+                engaged={engaged}
                 onEnded={advanceVideo}
                 onRequestFocus={() => setActiveVideo(index)}
                 onUserInteract={markUserInteracted}
