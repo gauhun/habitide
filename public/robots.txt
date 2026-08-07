@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://habitide.in/sitemap.xml

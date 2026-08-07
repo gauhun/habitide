@@ -9,6 +9,7 @@ const Footer = () => {
             Habitide · Built solo by Garoono
           </p>
           <nav className="footer-links">
+            <a href="/blog/">Blog</a>
             <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
             <a href="/terms" target="_blank" rel="noopener noreferrer">Terms</a>
             <a href="mailto:garoonotech@gmail.com">Support</a>
